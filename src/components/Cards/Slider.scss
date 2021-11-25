@@ -1,15 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:700|IBM+Plex+Sans:500&display=swap');
 
+// :root {
+// 	--color-primary: #6b7a8f;
+// 	--color-secondary: #101118;
+// 	--color-tertiary: #cee5d0;
+// 	--color-accent: #1d1f2f;
+// 	--color-focus: #6d64f7;
+// 	--color-button: #ff96ad;
+// 	--base-duration: 600ms;
+// 	--base-ease: cubic-bezier(0.25, 0.46, 0.45, 0.84);
+// }
+
 :root {
-	--color-primary: #6b7a8f;
-	--color-secondary: #101118;
-	--color-tertiary: #cee5d0;
-	--color-accent: #1d1f2f;
-	--color-focus: #6d64f7;
-	--color-button: #ff96ad;
-	--base-duration: 600ms;
-	--base-ease: cubic-bezier(0.25, 0.46, 0.45, 0.84);
+	--x: 0;
+	--y: 0;
+	--d: 50;
 }
+
+$color-secondary: #101118;
+$color-tertiary: #cee5d0;
+$color-accent: #1d1f2f;
+$color-focus: #6d64f7;
+$color-button: #ff96ad;
+$base-duration: 600ms;
+$base-ease: cubic-bezier(0.25, 0.46, 0.45, 0.84);
+$color-primary: #6b7a8f;
 
 // =========================
 // Global
@@ -49,7 +64,7 @@ body {
 // =========================
 
 .icon {
-	fill: var(--color-primary);
+	fill: $color-primary;
 	width: 100%;
 }
 
@@ -58,7 +73,7 @@ body {
 // =========================
 
 .btn {
-	background-color: var(--color-button);
+	background-color: $color-button;
 	border: none;
 	border-radius: 0.125rem;
 	color: white;
@@ -68,7 +83,7 @@ body {
 	padding: 1rem 2.5rem 1.125rem;
 
 	&:focus {
-		outline-color: var(--color-focus);
+		outline-color: $color-focus;
 		outline-offset: 2px;
 		outline-style: solid;
 		outline-width: 3px;
@@ -80,7 +95,7 @@ body {
 
 	&:hover {
 		background-color: white;
-		color: var(--color-button);
+		color: $color-button;
 	}
 }
 
@@ -97,19 +112,19 @@ body {
 	// padding-bottom: 60px;
 
 	.btn {
-		--size: 3rem;
+		$size: 3rem;
 
 		align-items: center;
 		background-color: transparent;
 		border: 3px solid transparent;
 		border-radius: 100%;
 		display: flex;
-		height: var(--size);
+		height: $size;
 		padding: 0;
-		width: var(--size);
+		width: $size;
 
 		&:focus {
-			border-color: var(--color-focus);
+			border-color: $color-focus;
 			outline: none;
 		}
 
@@ -122,23 +137,21 @@ body {
 // =========================
 // Slider
 // =========================
-
+$slide-size: 50vmin;
+$slide-margin: 4vmin;
 .slider {
-	--slide-size: 50vmin;
-	--slide-margin: 4vmin;
-
-	height: var(--slide-size);
+	height: $slide-size;
 	margin: 0 auto;
 	position: relative;
-	width: var(--slide-size);
+	width: $slide-size;
 	margin-bottom: 15vh;
 }
 
 .slider__wrapper {
 	display: flex;
-	margin: 0 calc(var(--slide-margin) * -1);
+	margin: 0 calc($slide-margin * -1);
 	position: absolute;
-	transition: transform var(--base-duration) cubic-bezier(0.25, 1, 0.35, 1);
+	transition: transform $base-duration cubic-bezier(0.25, 1, 0.35, 1);
 }
 
 // =========================
@@ -151,15 +164,15 @@ body {
 	display: flex;
 	flex: 1;
 	flex-direction: column;
-	height: var(--slide-size);
+	height: $slide-size;
 	justify-content: center;
-	margin: 0 var(--slide-margin);
+	margin: 0 $slide-margin;
 	opacity: 0.25;
 	position: relative;
 	text-align: center;
-	transition: opacity calc(var(--base-duration) / 2) var(--base-ease),
-		transform calc(var(--base-duration) / 2) var(--base-ease);
-	width: var(--slide-size);
+	transition: opacity calc($base-duration / 2) $base-ease,
+		transform calc($base-duration / 2) $base-ease;
+	width: $slide-size;
 	z-index: 1;
 
 	&-previous,
@@ -186,37 +199,35 @@ body {
 	}
 }
 
+$x: var(--x);
+$y: var(--y);
+$d: var(--d);
 .slide-current {
-	--x: 0;
-	--y: 0;
-	--d: 50;
-
 	opacity: 1;
 	pointer-events: auto;
 	user-select: auto;
 
 	@media (hover: hover) {
 		&:hover .slide__image-wrapper {
-			transform: scale(1.05)
-				translate(calc(var(--x) / var(--d) * 1px), calc(var(--y) / var(--d) * 1px));
+			transform: scale(1.05) translate(calc($x / $d * 1px), calc($y / $d * 1px));
 		}
 	}
 }
 
 .slide__image-wrapper {
-	background-color: var(--color-accent);
+	background-color: $color-accent;
 	border-radius: 2%;
 	height: 100%;
 	left: 0%;
 	overflow: hidden;
 	position: absolute;
 	top: 0%;
-	transition: transform calc(var(--base-duration) / 4) var(--base-ease);
+	transition: transform calc($base-duration / 4) $base-ease;
 	width: 100%;
 }
 
 .slide__image {
-	--d: 20;
+	$d: 20;
 
 	height: 110%;
 	left: -5%;
@@ -225,14 +236,13 @@ body {
 	pointer-events: none;
 	position: absolute;
 	top: -5%;
-	transition: opacity var(--base-duration) var(--base-ease),
-		transform var(--base-duration) var(--base-ease);
+	transition: opacity $base-duration $base-ease, transform $base-duration $base-ease;
 	user-select: none;
 	width: 110%;
 
 	@media (hover: hover) {
 		.slide-current & {
-			transform: translate(calc(var(--x) / var(--d) * 1px), calc(var(--y) / var(--d) * 1px));
+			transform: translate(calc($x / $d * 1px), calc($y / $d * 1px));
 		}
 	}
 }
@@ -251,17 +261,17 @@ body {
 	opacity: 0;
 	padding: 4vmin;
 	position: relative;
-	transition: transform var(--base-duration) var(--base-ease);
+	transition: transform $base-duration $base-ease;
 	visibility: hidden;
 	padding: 0;
 
 	.slide-current & {
 		// font-family: 'IBM Plex Sans', sans-serif;
-		animation: fade-in calc(var(--base-duration) / 2) var(--base-ease) forwards;
+		animation: fade-in calc($base-duration / 2) $base-ease forwards;
 		visibility: visible;
 
 		@media (hover: hover) {
-			transform: translate(calc(var(--x) / var(--d) * -1px), calc(var(--y) / var(--d) * -1px));
+			transform: translate(calc($x / $d * -1px), calc($y / $d * -1px));
 		}
 	}
 
