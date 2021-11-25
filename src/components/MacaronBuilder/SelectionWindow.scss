@@ -1,0 +1,37 @@
+.selection-palette {
+	display: flex;
+	background-color: white;
+	justify-content: space-around;
+	padding: 10px;
+	flex-flow: row wrap;
+	overflow: hidden;
+	z-index: 5;
+
+	.flavour {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100px;
+		padding: 10px;
+		text-align: center;
+		box-sizing: border-box;
+		cursor: pointer;
+		font-family: 'Segoe UI', sans-serif;
+	}
+
+	.selection {
+		border: 1px solid rgba(200, 200, 200, 0.8);
+		border-radius: 10px;
+	}
+
+	img {
+		width: 80px;
+		height: 80px;
+		object-fit: cover;
+	}
+
+	.description {
+		font-family: 'Segoe UI', sans-serif;
+		font-size: smaller;
+	}
+}

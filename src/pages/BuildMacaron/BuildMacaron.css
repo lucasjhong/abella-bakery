@@ -1,0 +1,21 @@
+.buildmacaron-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.buildmacaron-info-panel {
+	width: 60%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.buildmacaron-info-panel-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	margin: 18px;
+}

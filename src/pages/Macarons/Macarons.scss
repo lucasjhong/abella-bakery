@@ -1,0 +1,149 @@
+.macarons {
+	background-color: turquoise;
+	text-align: center;
+	align-items: center;
+	width: 80%;
+	margin: auto;
+	font-family: 'Segoe UI', sans-serif;
+	justify-content: center;
+}
+
+.macarons-order {
+	background-color: turquoise;
+	text-align: center;
+	width: 80%;
+	margin: auto;
+	font-family: 'Segoe UI', sans-serif;
+}
+
+.centered {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 70px;
+	color: white;
+}
+
+.flavour-panel {
+	margin: auto;
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.flavour-list {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.flavour-item {
+	width: 200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin: 30px 0;
+
+	img {
+		width: 150px;
+		height: 150px;
+		object-fit: cover;
+		margin-bottom: 18px;
+	}
+
+	h4 {
+		font-size: 14px;
+	}
+
+	p {
+		font-size: 12px;
+	}
+}
+
+.build-panel {
+	position: relative;
+	width: 80%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	.build-panel-image {
+		width: 50%;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		transition: all 0.4s ease;
+
+		img {
+			transition: all 0.4s ease;
+		}
+
+		.inside-image {
+			z-index: 10;
+			background-color: black;
+			color: white;
+			padding: 12px 24px;
+			top: 40%;
+			left: 50%;
+			position: absolute;
+			overflow: hidden;
+			transform: translate(-50%, -50%);
+			text-decoration: none;
+
+			h4 {
+				margin: 14px 0;
+			}
+		}
+		&:hover {
+			img {
+				opacity: 0.8;
+			}
+			.inside-image {
+				background-color: white;
+				color: black;
+			}
+		}
+	}
+}
+
+//////////////////////////////
+//	MOBILE
+//////////////////////////////
+@media screen and (max-width: 960px) {
+	.build-panel {
+		width: 100%;
+		.build-panel-image {
+			.inside-image {
+				width: 80%;
+				padding: 12px;
+				font-size: 14px;
+			}
+		}
+	}
+
+	.flavour-item {
+		width: 100px;
+		img {
+			width: 80px;
+			height: 80px;
+		}
+		h4 {
+			font-size: 12px;
+		}
+		p {
+			font-size: 10px;
+		}
+	}
+}

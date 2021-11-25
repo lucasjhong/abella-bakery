@@ -1,0 +1,46 @@
+.filter-list {
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	margin: auto;
+	height: 12vh;
+	margin-top: 60px;
+
+	.filter-sublist {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
+}
+
+.menu-overall {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+}
+
+.menu-list {
+	padding-top: 5vh;
+	min-height: 80vh;
+	width: 80%;
+	display: flex;
+	flex-flow: wrap;
+	align-items: flex-start;
+	justify-content: center;
+	margin: auto;
+}
+
+//////////////////////////////
+//	MOBILE
+//////////////////////////////
+@media screen and (max-width: 960px) {
+	.filter-list {
+		width: 90%;
+		flex-direction: column;
+	}
+}

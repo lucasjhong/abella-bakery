@@ -1,0 +1,20 @@
+.feed-gallery {
+	width: 80%;
+	margin: auto;
+}
+
+.Feed {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.Feed a {
+	width: 300px;
+	height: 300px;
+	margin: 20px;
+}
+
+.Feed a:hover {
+}

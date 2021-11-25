@@ -1,0 +1,162 @@
+.cart-item {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 150px;
+	width: 90%;
+	border: 1px black;
+	border-bottom: 1px rgb(150, 150, 150);
+	text-align: center;
+
+	.item-image {
+		display: flex;
+		height: 80%;
+		margin-top: auto;
+		margin-bottom: auto;
+		flex: 2;
+		overflow: hidden;
+		margin: auto;
+
+		img {
+			aspect-ratio: 1/1;
+			width: 100%;
+			cursor: pointer;
+			object-fit: contain;
+		}
+	}
+
+	.fas {
+		color: rgb(150, 150, 150);
+		cursor: pointer;
+		font-size: 12px;
+		transition: all 0.15s ease-in-out;
+
+		&:hover {
+			transform: scale(1.5);
+		}
+	}
+
+	.item-info {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		flex: 8;
+		margin: 0 12px;
+
+		.item-count {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			flex: 2;
+
+			.counter {
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				flex-direction: row;
+			}
+
+			.price {
+				font-weight: bold;
+				// width: 8%;
+			}
+		}
+
+		.item-description {
+			display: flex;
+			flex-direction: column;
+			width: 30%;
+			cursor: pointer;
+			flex: 5;
+			text-align: start;
+			padding: 0 4px;
+
+			p {
+				margin: 0;
+			}
+			.category {
+				color: rgb(150, 150, 150);
+				font-weight: 900;
+			}
+			.title {
+				font-weight: 900;
+			}
+			.description {
+				font-size: 13px;
+				font-weight: 500;
+			}
+		}
+
+		.fa-times {
+			margin-left: 8px;
+			font-size: 18px;
+		}
+	}
+}
+
+.confirmation-modal {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	padding: 30px 30px;
+	border-radius: 8px;
+	text-align: center;
+	outline: 0;
+	.fa-exclamation-triangle {
+		font-size: 30px;
+		color: rgb(150, 150, 150);
+		margin-bottom: 12px;
+	}
+}
+
+//////////////////////////////
+//	MOBILE
+//////////////////////////////
+@media screen and (max-width: 960px) {
+	.cart-item {
+		height: 100px;
+		width: 100%;
+
+		.item-info {
+			height: 80%;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: flex-start;
+			width: auto;
+
+			.item-description {
+				width: 100%;
+				font-size: 11px;
+
+				.category {
+				}
+
+				.title {
+				}
+
+				.description {
+					font-size: 9px;
+				}
+			}
+			.item-count {
+				width: 100%;
+				justify-content: space-between;
+				font-size: 12px;
+
+				.counter {
+					width: 40%;
+				}
+				.price {
+				}
+			}
+		}
+	}
+}

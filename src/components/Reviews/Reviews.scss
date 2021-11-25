@@ -1,0 +1,81 @@
+$pink: #efbbcf;
+
+.product-review {
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	margin: 12px auto 48px;
+
+	&.item {
+		width: 100%;
+		margin: 16px 8px;
+
+		h4 {
+			margin: 8px;
+		}
+		i {
+			color: $pink;
+		}
+	}
+}
+
+.review-form {
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	margin: auto auto 36px auto;
+
+	.review-stars {
+		i {
+			cursor: pointer;
+			color: $pink;
+			font-size: 18px;
+		}
+	}
+
+	Button {
+		color: white;
+		width: 15%;
+		background-color: $pink;
+		margin: 12px 0;
+		&:hover {
+			background-color: white;
+			color: $pink;
+		}
+	}
+}
+
+//////////////////////////////
+//	MOBILE
+//////////////////////////////
+@media screen and (max-width: 960px) {
+	.product-review {
+		width: 90%;
+
+		h3 {
+			font-size: 16px;
+		}
+
+		.average-rating {
+		}
+
+		.item {
+			h4 {
+				font-size: 14px;
+			}
+			p {
+				font-size: 14px;
+			}
+		}
+	}
+	.review-form {
+		width: 90%;
+		h3 {
+			font-size: 16px;
+		}
+
+		p {
+			font-size: 14px;
+		}
+	}
+}

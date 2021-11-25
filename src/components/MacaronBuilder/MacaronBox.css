@@ -1,0 +1,14 @@
+/* svg:hover #Macarons {
+	animation-duration: 1.2s;
+	animation-name: animateMacarons;
+	animation-iteration-count: infinite;
+}
+
+@keyframes animateMacarons {
+	from {
+		transform: translateX(0) translateY(0);
+	}
+	to {
+		transform: translateX(0) translateY(30);
+	}
+} */

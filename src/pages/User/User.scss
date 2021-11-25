@@ -1,0 +1,33 @@
+.login-panel {
+	margin: auto;
+	margin-top: 15vh;
+	width: 25%;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	transition: all 0.6s ease;
+}
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.6s ease;
+}
+
+.user-panel {
+}
+
+.error-message {
+	color: #fb3640;
+}
+
+//////////////////////////////
+//	MOBILE
+//////////////////////////////
+@media screen and (max-width: 960px) {
+	.login-panel {
+		width: 70%;
+	}
+}

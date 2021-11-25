@@ -1,0 +1,255 @@
+$duration: 0.2s;
+$distance: 8px;
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+// $red: #f37272;
+$red: #ff5c58;
+$brown: #584e4a;
+$whitey: #f0f0f0;
+$offwhite: #fffafa;
+
+.navbar {
+	background: transparent;
+	height: 70px;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.2rem;
+	position: sticky;
+	top: 0;
+	z-index: 999;
+	transition: 0.5s ease;
+}
+
+.navbar.active {
+	// background: #efbbcf;
+	background: $offwhite;
+	position: sticky;
+	box-shadow: 0 3px 4px -1px rgba(0, 0, 0, 0.25);
+	transition: 0.5s ease;
+}
+
+.navbar-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 70px;
+	width: 90%;
+}
+
+// .navbar-container > li:nth-child(3) {
+// 	--accent-color: #ea8d8d;
+// 	--gradient-color: #a890fe;
+// }
+
+.navbar-logo {
+	justify-self: start;
+	margin-left: 20px;
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 2rem;
+	// color: #dbe9f4;
+	// color: #f5f5f5;
+	// color: #c85c5c;
+	color: $red;
+	display: flex;
+	flex-direction: row;
+	/* justify-content: center; */
+	align-items: center;
+}
+
+.navbar img {
+	margin-left: 10px;
+	width: 40px;
+	height: 40px;
+	object-fit: contain;
+}
+
+.nav-menu {
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+	text-align: center;
+	width: 80%;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.nav-item {
+	padding: 0 5px;
+
+	.authenticated {
+		color: $red;
+	}
+
+	.unauthenticated {
+		color: grey;
+	}
+}
+
+.nav-links {
+	display: flex;
+	flex-direction: row;
+	margin: auto;
+	align-items: center;
+	font-weight: 600;
+	text-decoration: none;
+	padding: 0.5rem 1rem;
+	color: $red;
+	transition: 0.5s ease;
+	position: relative;
+
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+		right: 0;
+		height: 3px;
+		width: 80%;
+		margin: auto;
+		background-color: white;
+	}
+	&:before {
+		opacity: 0;
+		transform: translateY(-$distance);
+		transition: transform 0s $easeOutBack, opacity 0s;
+	}
+	&:after {
+		opacity: 0;
+		transform: translateY($distance/2);
+		transition: transform $duration $easeOutBack, opacity $duration;
+	}
+
+	&:hover {
+		&:before,
+		&:after {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		&:before {
+			transition: transform $duration $easeOutBack, opacity $duration;
+		}
+		&:after {
+			transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+		}
+	}
+}
+
+// .nav-links:active {
+// 	/* color: #efbbcf; */
+// 	color: white;
+// 	transition: 0.5s ease;
+// }
+
+.fa-bars {
+	color: #fff;
+}
+
+.nav-links-mobile {
+	display: none;
+}
+
+.menu-icon {
+	display: none;
+}
+
+//////////////////////////////
+//	MOBILE
+//////////////////////////////
+@media screen and (max-width: 960px) {
+	.fa-caret-down {
+		display: none;
+	}
+
+	.NavbarItems {
+		position: relative;
+	}
+
+	.navbar {
+		margin-top: 10px;
+		position: relative;
+		z-index: 5;
+
+		&.active {
+		}
+	}
+
+	.navbar-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		z-index: 100;
+	}
+
+	.nav-menu {
+		margin: 0;
+		position: absolute;
+		background: #242222;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 120vh;
+		position: absolute;
+		left: -100%;
+		z-index: 1;
+		transition: all 0.5s ease;
+		justify-content: flex-start;
+		padding-top: 15vh;
+		top: -10px;
+
+		&.active {
+			left: 0;
+			opacity: 0.9;
+		}
+	}
+
+	.nav-item {
+		margin: 20px auto;
+	}
+
+	.nav-links {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin: auto;
+		text-align: center;
+		width: 50%;
+		border-radius: 25px;
+	}
+
+	// .nav-links:hover {
+	// 	width: 70%;
+	// 	background-color: #fff;
+	// 	color: #242424;
+	// }
+
+	.navbar-logo {
+		position: absolute;
+		top: 0;
+		left: 0;
+		// transform: translate(25%, 30%);
+
+		h1 {
+			margin: 0;
+		}
+	}
+
+	.menu-icon {
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		transform: translate(-150%, 40%);
+		font-size: 1.8rem;
+		cursor: pointer;
+
+		.fas {
+			color: $red;
+			font-size: 1.8rem;
+		}
+	}
+}
