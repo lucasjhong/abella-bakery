@@ -15,7 +15,6 @@
     "framer-motion": "^2.8.0",
     "google-maps-react": "^2.0.6",
     "jwt-decode": "^3.1.2",
-    "node-sass": "^4.14.0",
     "react": "^16.14.0",
     "react-copy-to-clipboard": "^5.0.2",
     "react-custom-scrollbars": "^4.2.1",
@@ -32,6 +31,8 @@
     "react-toastify": "^6.0.9",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "sass": "^1.43.5",
+    "sass-loader": "^12.3.0",
     "simplebar-react": "^2.3.0",
     "styled-components": "^5.2.0"
   },
