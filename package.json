@@ -1,6 +1,7 @@
 {
   "name": "abella",
   "version": "0.1.0",
+  "homemage": ".",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.4.1",
