@@ -22,11 +22,12 @@ const Macarons = () => {
 			<div className='build-panel'>
 				<h3>CUSTOM MACARON BOXES</h3>
 				<div className='build-panel-image'>
-					<h4 className='inside-image'>Build Your Box</h4>
+					<h4 className='inside-image' onClick={() => history.push('/macaron-builder')}>
+						Build Your Box
+					</h4>
 					<img
 						alt='Macaron Builder'
 						src='https://firebasestorage.googleapis.com/v0/b/abella-bakery.appspot.com/o/macaron-builder-preview2.png?alt=media&token=79abc852-03ca-4ce2-b6ae-fd18dee44c4d'
-						onClick={() => history.push('/macaron-builder')}
 					/>
 				</div>
 			</div>
