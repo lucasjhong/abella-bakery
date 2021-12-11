@@ -2,19 +2,18 @@ import { INCREASE_ITEM, DECREASE_ITEM, ADD_ITEM, REMOVE_ITEM, CLEAR_CART } from 
 
 const initialStore = {
 	cartItems: [
-		{
-			id: 'yggjiebibjd',
-			imageUrl: 'https://i.pinimg.com/474x/ec/36/fb/ec36fb9f509c3ac01ad1c6d4a4d45059.jpg',
-			category: 'Macaron',
-			title: 'Box of 10 - Custom',
-			description:
-				'Blueberry x 2, Chocolate x 1, Cookies n Cream x 1, Pistachio x 2, Strawberry x 2, Tiramisu x 2',
-			count: 1,
-			price: 29.99,
-		},
+		// default test item
+		// {
+		// 	id: 'yggjiebibjd',
+		// 	imageUrl: 'https://i.pinimg.com/474x/ec/36/fb/ec36fb9f509c3ac01ad1c6d4a4d45059.jpg',
+		// 	category: 'Macaron',
+		// 	title: 'Box of 10 - Custom',
+		// 	description:
+		// 		'Blueberry x 2, Chocolate x 1, Cookies n Cream x 1, Pistachio x 2, Strawberry x 2, Tiramisu x 2',
+		// 	count: 1,
+		// 	price: 29.99,
+		// },
 	],
-	// amount: 4,
-	// total: 100,
 };
 
 export default (state = initialStore, action) => {
