@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import './slide.scss';
 
 const Slide = (props) => {
 	const { src, button, headline, index, link } = props.slide;
@@ -51,7 +50,6 @@ const Slide = (props) => {
 			<article className='slide__content'>
 				<h2 className='slide__headline'>{headline}</h2>
 				<Link className='slide__action btn' to={`/${link}`} style={{ textDecoration: 'none' }}>
-					{/* <button className='slide__action btn'>{button}</button> */}
 					{button}
 				</Link>
 			</article>

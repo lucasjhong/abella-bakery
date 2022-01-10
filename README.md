@@ -1,6 +1,6 @@
 # Abella Bakery
 
-E-commerce React app
+E-commerce React app\
 [Check out the deployed website](https://abellabakery.ca)
 
 ## Preview

@@ -6,7 +6,6 @@ import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// import { Button, Modal } from '@material-ui/core';
 import { Button, Modal } from '@mui/material';
 import MacaronBox from './MacaronBox';
 import SelectionWindow from './SelectionWindow';
@@ -62,9 +61,9 @@ const MacaronBuilder = ({ dispatch }) => {
 	// Looks up the passed flavour parameter then looks it up through the
 	const changeMacaronFlavour = (newFlavour, number) => {
 		if (selectedMacaron || number) {
-			var newList = [...macaronList];
-			var newItem = { ...newList[number ? number : selectedMacaron] };
-			var newMacaron;
+			let newList = [...macaronList];
+			let newItem = { ...newList[number ? number : selectedMacaron] };
+			let newMacaron;
 			// Setting the type of macaron build to 'custom'
 			if (newFlavour === 'custom') {
 				// Handles macaron type switch to custom. Properties stay the same
@@ -91,25 +90,8 @@ const MacaronBuilder = ({ dispatch }) => {
 		}
 	};
 
-	// Changing colours of the selected macaron based on user's selection
-	const changeMacaronColour = (segment, newColour) => {
-		// checks if macaron is selected and ensures the segment passed is valid
-		if (selectedMacaron && macaronList[selectedMacaron].segment) {
-			var newList = [...macaronList];
-			var newItem = { ...newList[selectedMacaron] };
-			newItem.segment = newColour;
-			newList[selectedMacaron] = newItem;
-			setMacaronList(newList);
-		}
-	};
-
 	const handleBoxSelection = (event, newValue) => {
 		setBoxSelection(newValue);
-	};
-
-	const handleTypeSelection = (event, newType) => {
-		console.log('haneldTypeSelection enters: ' + newType);
-		changeMacaronFlavour(newType);
 	};
 
 	const handleFlavourSelection = (flavourSelected) => {
@@ -142,9 +124,10 @@ const MacaronBuilder = ({ dispatch }) => {
 	};
 
 	const randomizeMacarons = () => {
-		var newMacaron;
-		var newList = [...macaronList];
+		let newMacaron;
+		let newList = [...macaronList];
 		setMacaronList(newList);
+
 		for (var i = 0; i < newList.length; i++) {
 			newMacaron = macaronLibrary[Math.floor(Math.random() * macaronLibrary.length)];
 			newList[i] = {
@@ -171,7 +154,7 @@ const MacaronBuilder = ({ dispatch }) => {
 	const getDescription = () => {
 		let description = '';
 		macaronLibrary.map((macaron) => {
-			var macaronCount = 0;
+			let macaronCount = 0;
 			macaronList.slice(0, boxSelection === 'ten' ? 10 : 5).map((obj) => {
 				if (obj.flavour === macaron.flavour) {
 					macaronCount++;
@@ -186,83 +169,20 @@ const MacaronBuilder = ({ dispatch }) => {
 		return description;
 	};
 
-	// Handles macaron combination code input through url
-	// useEffect(() => {
-	// 	if (macaronId) {
-	// 		for (var i = 0; i < 5; i++) {
-	// 			tempSetMacaronSelection(i);
-	// 			console.log(selectedMacaron);
-	// 		}
-
-	// 		// console.log('macaronId accepted');
-	// 		// try {
-	// 		// 	macaronId.charAt(0) === 'y' ? setBoxSelection('ten') : setBoxSelection('five');
-	// 		// 	var count = 0;
-	// 		// 	for (var i = 1; i < macaronId.length; i++) {
-	// 		// 		setSelectedMacaron('' + count);
-	// 		// 		console.log('selected macaron: ' + selectedMacaron);
-	// 		// 		// changeMacaronFlavour(
-	// 		// 		// 	macaronLibrary.find((obj) => {
-	// 		// 		// 		return obj.id === macaronId.charAt(i);
-	// 		// 		// 	}).flavour
-	// 		// 		// );
-	// 		// 		// var macaron = macaronLibrary.find((obj) => {
-	// 		// 		// 	return obj.id === macaronId.charAt(i);
-	// 		// 		// });
-	// 		// 		changeMacaronFlavour('chocolate');
-	// 		// 		count = count++;
-	// 		// 	}
-	// 		// } catch (error) {
-	// 		// 	setErrorModal(true);
-	// 		// 	console.log(macaronId);
-	// 		// 	console.log(error);
-	// 		// }
-	// 	} else {
-	// 		randomizeMacarons();
-	// 	}
-	// }, [macaronId]);
-
-	// useEffect(() => {
-	// 	randomizeMacarons();
-	// 	if (macaronId) {
-	// 		macaronId.charAt(0) === 'x' ? setBoxSelection('five') : setBoxSelection('ten');
-	// 		for (var i = 1; i < macaronId.length; i++) {
-	// 			console.log(i + ' changing macaron flavour');
-	// 			changeMacaronFlavour(
-	// 				macaronLibrary.find((obj) => {
-	// 					return obj.id === macaronId.charAt(i);
-	// 				}).flavour,
-	// 				i - 1
-	// 			);
-	// 		}
-	// 	}
-	// }, [macaronId]);
-
 	useEffect(() => {
 		randomizeMacarons();
 		if (macaronId) {
 			try {
 				macaronId.charAt(0) === 'x' ? setBoxSelection('five') : setBoxSelection('ten');
-				var newList = [...macaronList];
-				var count = 0;
+				let newList = [...macaronList];
+				let count = 0;
 				console.log(macaronId);
-				// for (var i = 0; i < macaronId.length; i++) {
-				// 	var id = macaronId.charAt(i + 1);
-				// 	var newMacaron = macaronLibrary.find((obj) => {
-				// 		return obj.id === macaronId.charAt(i + 1);
-				// 	});
-				// 	console.log(macaronId.charAt(i));
-				// 	console.log(newMacaron);
-				// 	newList[i].flavour = newMacaron.flavour;
-				// 	newList[i].top = newMacaron.top;
-				// 	newList[i].filling = newMacaron.flavour;
-				// 	newList[i].bottom = newMacaron.bottom;
-				// }
+
 				macaronId
 					.slice(1)
 					.split('')
 					.map((char) => {
-						var newMacaron = macaronLibrary.find((obj) => {
+						let newMacaron = macaronLibrary.find((obj) => {
 							return obj.id === char;
 						});
 						console.log(newMacaron);
@@ -278,7 +198,6 @@ const MacaronBuilder = ({ dispatch }) => {
 				//show modal to indicate it could not be loaded
 				console.log(error);
 				toastNotify('error', 'Invalid code, check your code and try again');
-				// return <Redirect to='/mcaraon-builder' />;
 			}
 		}
 	}, [macaronId]);
@@ -287,10 +206,6 @@ const MacaronBuilder = ({ dispatch }) => {
 		setBoxId(configureBoxId);
 		console.log('boxId initialized: ' + boxId);
 	}, [macaronList, boxSelection]);
-
-	useEffect(() => {
-		dispatch({ type: GET_TOTAL });
-	});
 
 	return (
 		<>
@@ -371,8 +286,8 @@ const MacaronBuilder = ({ dispatch }) => {
 								</div>
 							))} */}
 						{macaronLibrary.map((macaron) => {
-							var macaronCount = 0;
-							var boxSize = boxSelection === 'ten' ? 10 : 5;
+							let macaronCount = 0;
+							let boxSize = boxSelection === 'ten' ? 10 : 5;
 							macaronList.slice(0, boxSize).map((obj) => {
 								if (obj.flavour === macaron.flavour) {
 									macaronCount++;
@@ -401,48 +316,15 @@ const MacaronBuilder = ({ dispatch }) => {
 								<ToggleButton value='five'>Box of 5</ToggleButton>
 								<ToggleButton value='ten'>Box of 10</ToggleButton>
 							</ToggleButtonGroup>
-							{/* Flavour / Custom ToggleButton hidden for the time being */}
-							{/* <ToggleButtonGroup
-								value={
-									!selectedMacaron
-										? null
-										: macaronList[selectedMacaron].flavour === 'custom'
-										? macaronList[selectedMacaron].flavour
-										: 'flavour'
-								}
-								exclusive
-								onChange={handleTypeSelection}
-								size='small'
-								style={{ margin: 20, justifyContent: 'center' }}
-							>
-								<ToggleButton value='flavour'>Flavour</ToggleButton>
-								<ToggleButton value='custom'>Custom</ToggleButton>
-							</ToggleButtonGroup> */}
 						</div>
-						{/* Old version that always shows text. Changed due to lack of space */}
-						{/* {!selectedMacaron ? (
-							<h3>Select a Macaron</h3>
-						) : macaronList[selectedMacaron].flavour === 'custom' ? (
-							<h3>Choose Colours / Filling</h3>
-						) : (
-							<h3>Choose Flavour</h3>
-						)} */}
+
 						{!selectedMacaron && (
 							<div>
 								<p>Select a Macaron!</p>
 								<p style={{ cursor: 'pointer' }} onClick={randomizeMacarons}>
 									or..{' '}
 								</p>
-								{/* <div
-									style={{ display: 'inline-block', backgroundColor: 'teal', padding: '4px 16px' }}
-								>
-									<p
-										style={{ cursor: 'pointer', color: 'efbbcf', margin: '0', color: 'white' }}
-										onClick={randomizeMacarons}
-									>
-										Randomize
-									</p>
-								</div> */}
+
 								<Button color='primary' onClick={randomizeMacarons} style={{ color: '#ff5c58' }}>
 									randomize
 								</Button>
@@ -455,13 +337,6 @@ const MacaronBuilder = ({ dispatch }) => {
 									onClick={() => handleSegmentSelection('top')}
 									className={'color-selector-selection selected'}
 								>
-									{/* <i
-										class={
-											selectedMacaron
-												? `fas fa-circle ${macaronList[selectedMacaron].top}`
-												: 'fas fa-circle'
-										}
-									/> */}
 									<img
 										alt=''
 										src={
@@ -558,15 +433,6 @@ const MacaronBuilder = ({ dispatch }) => {
 									testText='flavour'
 								/>
 							)}
-						{/* {selectionWindow && (
-							<div className='selection-palette'>
-								<i class='fas fa-circle' />
-								<i class='fas fa-circle' />
-								<i class='fas fa-circle' />
-								<i class='fas fa-circle' />
-							</div>
-						)} */}
-						{/* {!selectionWindow && ( */}
 						<div style={{ display: 'flex', flexDirection: 'column' }}>
 							<p style={{ fontWeight: '900', fontSize: '14px' }}>
 								Total: ${boxSelection === 'ten' ? '30.00' : '15.00'}
@@ -605,21 +471,5 @@ const MacaronBuilder = ({ dispatch }) => {
 		</>
 	);
 };
-
-// const mapDispatchToProps = (dispatch, ownProps) => {
-// 	return {
-// 		addItem: () =>
-// 			dispatch({
-// 				type: ADD_ITEM,
-// 				payload: {
-// 					image:
-// 						'https://banner2.cleanpng.com/20180424/tfq/kisspng-box-macaron-macaroon-packaging-and-labeling-lid-pink-macaron-5adf02009ddfe1.6295456615245644806467.jpg',
-// 					category: 'Macaron',
-// 					title: boxSelection,
-
-// 				},
-// 			}),
-// 	};
-// };
 
 export default connect()(MacaronBuilder);

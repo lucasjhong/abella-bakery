@@ -23,7 +23,7 @@ import ScrollToTop from './components/common/ScrollToTop';
 // const history = createBrowserHistory();
 
 const token = localStorage.FBIdToken;
-let authenticated;
+let authenticated = false;
 
 if (token) {
 	const decodedToken = jwtDecode(token);
@@ -56,7 +56,7 @@ const App = () => {
 						<Route path='/macaron-flavours' component={Macarons} />
 						<Route path='/macaron-builder/:id' component={BuildMacaron} />
 						<Route path='/macaron-builder/' component={BuildMacaron} />
-						<Route path='/' exact component={Home} />
+						<Route path='/' component={Home} />
 					</Switch>
 				</Layout>
 			</ScrollToTop>

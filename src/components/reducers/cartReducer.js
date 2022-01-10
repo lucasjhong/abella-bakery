@@ -78,18 +78,6 @@ export default (state = initialStore, action) => {
 				cartItems: [],
 			};
 
-		// case GET_TOTAL:
-		// 	let total,
-		// 		amount = 0;
-		// 	state.cartItems.map((item) => {
-		// 		if (item) {
-		// 			total += item.price;
-		// 			amount += item.count;
-		// 		}
-		// 	});
-
-		// 	return { ...state, total, amount };
-
 		default:
 			return state;
 	}

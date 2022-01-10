@@ -46,24 +46,6 @@ const Macarons = () => {
 				</div>
 			</div>
 		</>
-
-		// <>
-		// 	<div className='.macarons'>
-		// 		<p style={{ fontSize: '16pt' }}>MACARONS</p>
-		// 		<p>Our macarons are handcrafted with the best organic ingredients,</p>
-		// 		<img src={image} alt='Macarons' className='.Image' />
-		// 		<p>FLAVOURS</p>
-		// 		<p>Explore our selection of macarons, and see what's inside</p>
-		// 	</div>
-
-		// 	<div className='.macaron-order'>
-		// 		<MacaronFlavours />
-		// 		<Button variant='outlined'>ORDER NOW</Button>
-		// 		<Button variant='outlined'>BUILD YOUR MACARONS</Button>
-		// 	</div>
-
-		// 	<div>See our ingredients</div>
-		// </>
 	);
 };
 

@@ -99,18 +99,6 @@ const ProductPage = (props) => {
 	};
 
 	const addItemToCart = () => {
-		// props.dispatch({
-		// 	type: ADD_ITEM,
-		// 	payload: {
-		// 		id: productData.productId,
-		// 		image: productData.imageUrl,
-		// 		category: capitalizeFirstLetter(productData.category),
-		// 		title: productData.title,
-		// 		// description: productData.description,
-		// 		price: productData.price,
-		// 	},
-		// });
-
 		props.addItem({
 			id: productData.productId,
 			imageUrl: productData.imageUrl,
@@ -183,52 +171,6 @@ const ProductPage = (props) => {
 								))}
 						</div>
 					</div>
-
-					{/* old version of review component - refactored  */}
-					{/* <ProductReviews productReviews={productReviews} productAverage={productAverage} />
-
-					<form className='review-form' onSubmit={handleSubmit}>
-						<h3>Rate this product</h3>
-
-						<Rating
-							value={reviewForm.stars}
-							onChange={(event, newValue) => {
-								setReviewForm({ ...reviewForm, stars: newValue });
-							}}
-							sx={{ color: '#efbbcf' }}
-							size='large'
-						/>
-						<TextField
-							fullWidth
-							name='content'
-							type='text'
-							multiline
-							rows='2'
-							placeholder='Write a review. Max character 200'
-							style={{ marginTop: '12px' }}
-							onChange={handleChange}
-							inputProps={{ maxLength: 200 }}
-							size='small'
-						/>
-						{user.authenticated ? (
-							<Button
-								variant='contained'
-								type='submit'
-								disable={submitState === 'success'}
-								sx={{ height: '30px' }}
-							>
-								{submitState === 'success' && (
-									<i class='fas fa-check' style={{ fontSize: '20px' }} />
-								)}
-								{submitState === 'loading' && <CircularProgress size={20} />}
-								{submitState === 'ready' && <p style={{ fontSize: '14px' }}>Add Review</p>}
-							</Button>
-						) : (
-							<p onClick={() => history.push('/user')} style={{ cursor: 'pointer' }}>
-								You need to be logged in to leave a review. Log in here.
-							</p>
-						)}
-					</form> */}
 
 					<h3>Related Products</h3>
 					<div className='related-container'>
