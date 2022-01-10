@@ -7,14 +7,6 @@ import './Slider.scss';
 const slides = [
 	{
 		index: 0,
-		headline: 'Macaron Boxes',
-		button: 'Customize Your Own',
-		src:
-			'https://images.unsplash.com/photo-1570476922354-81227cdbb76c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80',
-		link: 'macaron-builder',
-	},
-	{
-		index: 1,
 		headline: 'Fresh Patisseries',
 		button: 'See Desserts',
 		// src:
@@ -22,6 +14,14 @@ const slides = [
 		src:
 			'https://images.unsplash.com/photo-1582957736254-8d05634f441a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
 		link: 'menu',
+	},
+	{
+		index: 1,
+		headline: 'Macaron Boxes',
+		button: 'Customize',
+		src:
+			'https://images.unsplash.com/photo-1570476922354-81227cdbb76c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80',
+		link: 'macaron-builder',
 	},
 	{
 		index: 2,
