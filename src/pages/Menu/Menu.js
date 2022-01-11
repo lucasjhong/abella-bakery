@@ -8,15 +8,6 @@ import axios from 'axios';
 import MenuItem from '../../components/MenuItem/MenuItem';
 import './Menu.scss';
 
-// const FilterButton = withStyles((theme) => ({
-// 	root: {
-// 		backgroundColor: '#ffd5cd',
-// 		'&:hover': {
-// 			backgroundColor: '#ffd5cd',
-// 		},
-// 	},
-// }))(Button);
-
 const Menu = () => {
 	const [items, setItems] = useState([]);
 	const [filter, setFilter] = useState(['all']);
@@ -46,26 +37,6 @@ const Menu = () => {
 		var newFilter = [];
 		newFilter.push(category);
 		setFilter(newFilter);
-
-		// DEPRECATED METHOD, WHICH ALLOWS MULTIPLE FILTERS TO BE CLICKED
-		// var newFilter = [...filter];
-		// if (category === 'all') {
-		// 	newFilter = ['all'];
-		// } else {
-		// 	if (newFilter.indexOf('all') > -1) newFilter.splice(newFilter.indexOf('all'), 1);
-		// 	if (newFilter.includes(category)) {
-		// 		const index = newFilter.indexOf(category);
-		// 		newFilter.splice(index, 1);
-		// 	} else {
-		// 		newFilter.push(category);
-		// 	}
-		// }
-
-		// if (newFilter.length === 0) {
-		// 	newFilter.push('all');
-		// }
-
-		// setFilter(newFilter);
 	};
 
 	useEffect(() => {
