@@ -9,5 +9,5 @@ E-commerce React app\
 
 ## Firebase Functions
 
-Repo for the Firebase Functions for this app can be found ![here](https://github.com/lucasjhong/abella-firebase)\
+Repo for the Firebase Functions for this app can be found [here](https://github.com/lucasjhong/abella-firebase)\
 Built with Node.js and Express.js
