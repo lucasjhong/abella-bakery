@@ -62,7 +62,6 @@ const Reviews = ({ user, productId }) => {
 
 		try {
 			setSubmitState('loading');
-			// let data = await axios.post(`/reviews/${productId}`, review);
 			let data = await axios.post(`/reviews/${productId}`, review);
 			console.log(data);
 			setSubmitState('success');

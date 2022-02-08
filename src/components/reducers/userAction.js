@@ -8,6 +8,8 @@ import {
 } from './action';
 import axios from '../../components/common/axios';
 
+export const validTokenLogin = () => (dispatch) => {};
+
 export const loginUser = (userData) => (dispatch) => {
 	dispatch({ type: LOADING_UI });
 
@@ -17,7 +19,6 @@ export const loginUser = (userData) => (dispatch) => {
 			setAuthHeader(res.data.token);
 			dispatch(getUserData());
 			dispatch({ type: CLEAR_ERRORS });
-			// history.push('/');
 		})
 		.catch((err) => {
 			console.log(err);
@@ -25,31 +26,15 @@ export const loginUser = (userData) => (dispatch) => {
 		});
 };
 
-export const signupUser = (userData, history) => (dispatch) => {
-	// axios
-	// .post('/signup', userData)
-	// .then((res) => {
-	// 	setLoginState('loggedin');
-	// 	localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
-	// 	console.log(res.data);
-	// 	setLoading(false);
-	// })
-	// .catch((err) => {
-	// 	console.log(err);
-	// 	setErrors(err.response.data);
-	// 	setLoading(false);
-	// });
-
+export const signupUser = (userData) => (dispatch) => {
 	dispatch({ type: LOADING_UI });
 
 	axios
 		.post('/signup', userData)
 		.then((res) => {
 			setAuthHeader(res.data.token);
-			console.log(axios.defaults);
 			dispatch(getUserData());
 			dispatch({ type: CLEAR_ERRORS });
-			// history.push('/');
 		})
 		.catch((err) => {
 			console.log(err.response.data);

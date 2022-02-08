@@ -7,6 +7,7 @@ import UserInfo from '../../components/UserInfo/UserInfo';
 
 import { connect } from 'react-redux';
 import { loginUser, signupUser } from '../../components/reducers/userAction';
+import { useForm } from '../../hooks/useForm';
 
 import './User.scss';
 
@@ -36,13 +37,8 @@ const User = (props) => {
 	const { loading, errorList } = props.UI;
 	const { authenticated } = props.user;
 
-	// temp value to design user page
-	// const authenticated = true;
-
 	useEffect(() => {
 		setErrors(errorList);
-		console.log(props.UI);
-		console.log(props.user);
 	}, [errorList]);
 
 	// const [loading, setLoading] = useState(false);
@@ -52,11 +48,13 @@ const User = (props) => {
 		general: null,
 	});
 	const [loginState, setLoginState] = useState('login');
-	const [loginInfo, setLoginInfo] = useState({
+
+	const [loginInfo, handleLoginChange] = useForm({ email: '', password: '' });
+	const [signupInfo, handleSignupChange] = useForm({
 		email: '',
 		password: '',
 		confirmPassword: '',
-		username: '',
+		handle: '',
 	});
 
 	const handleSubmitLogin = (event) => {
@@ -72,18 +70,13 @@ const User = (props) => {
 	const handleSubmitSignup = (event) => {
 		event.preventDefault();
 		const userData = {
-			email: loginInfo.email,
-			password: loginInfo.password,
-			confirmPassword: loginInfo.confirmPassword,
-			handle: loginInfo.username,
+			email: signupInfo.email,
+			password: signupInfo.password,
+			confirmPassword: signupInfo.confirmPassword,
+			handle: signupInfo.username,
 		};
 
 		props.signupUser(userData, props.history);
-	};
-
-	const handleChange = (event) => {
-		const newLoginInfo = { ...loginInfo, [event.target.name]: event.target.value };
-		setLoginInfo(newLoginInfo);
 	};
 
 	const switchForm = (form) => {
@@ -92,15 +85,6 @@ const User = (props) => {
 
 	return (
 		<>
-			{/* <div className='cover'>
-				<img
-					src='https://now-forager.com/wp-content/uploads/2015/03/B-Patisserie-Now-Forager-Teresa-Floyd-Photography.jpg'
-					className='banner'
-					alt='Macarons'
-				/>
-				<h1 className='centered'>user</h1>
-			</div> */}
-
 			{authenticated && <UserInfo user={props.user} />}
 
 			{!authenticated && loginState === 'login' && (
@@ -116,7 +100,7 @@ const User = (props) => {
 							helperText={errors.email}
 							error={errors.email || errors.general ? true : false}
 							value={loginInfo.email}
-							onChange={handleChange}
+							onChange={handleLoginChange}
 						/>
 						<TextField
 							className={classes.textField}
@@ -127,7 +111,7 @@ const User = (props) => {
 							helperText={errors.password ? errors.password : null}
 							error={errors.password || errors.general ? true : false}
 							value={loginInfo.password}
-							onChange={handleChange}
+							onChange={handleLoginChange}
 						/>
 						{errors.general && <p className='error-message'>{errors.general}</p>}
 						<Button className={classes.button} type='submit'>
@@ -156,7 +140,7 @@ const User = (props) => {
 							helperText={errors.email}
 							error={errors.email ? true : false}
 							value={loginInfo.email}
-							onChange={handleChange}
+							onChange={handleSignupChange}
 						/>
 						<TextField
 							className={classes.textField}
@@ -167,7 +151,7 @@ const User = (props) => {
 							helperText={errors.password}
 							error={errors.password ? true : false}
 							value={loginInfo.password}
-							onChange={handleChange}
+							onChange={handleSignupChange}
 						/>
 						<TextField
 							className={classes.textField}
@@ -178,7 +162,7 @@ const User = (props) => {
 							helperText={errors.confirmPassword}
 							error={errors.confirmPassword ? true : false}
 							value={loginInfo.confirmPassword}
-							onChange={handleChange}
+							onChange={handleSignupChange}
 						/>
 						<TextField
 							className={classes.textField}
@@ -189,7 +173,7 @@ const User = (props) => {
 							helperText={errors.handle}
 							error={errors.handle ? true : false}
 							value={loginInfo.username}
-							onChange={handleChange}
+							onChange={handleSignupChange}
 						/>
 						{errors.general && <p className='error-message'>{errors.general}</p>}
 						<Button className={classes.button} type='submit'>

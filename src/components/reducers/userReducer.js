@@ -4,9 +4,6 @@ const initialState = {
 	userId: null,
 	authenticated: false,
 	credentials: {},
-	likes: [],
-	notifications: [],
-	orderHistory: [],
 };
 
 export default function (state = initialState, action) {

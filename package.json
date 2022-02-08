@@ -34,8 +34,7 @@
     "redux-thunk": "^2.3.0",
     "sass": "^1.43.5",
     "sass-loader": "^12.3.0",
-    "simplebar-react": "^2.3.0",
-    "styled-components": "^5.2.0"
+    "simplebar-react": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -59,7 +58,14 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-jest": "^24.9.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest": "^24.9.0",
     "nodemon": "^2.0.4",
-    "prettier": "2.1.2"
+    "prettier": "2.1.2",
+    "react-test-renderer": "^17.0.2"
   }
 }

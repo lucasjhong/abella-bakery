@@ -8,7 +8,7 @@ const InstagramGallery = () => {
 	return (
 		<div className='instagram-gallery'>
 			<i class='fab fa-instagram' style={{ fontSize: '48px', color: 'salmon' }} />
-			<InstagramFeed token='IGQVJYdE1aX1pDb0tneVotV3R5ZAmllMExVeDFjcExWUE9fdVBaZATE0SXlkNkQ4OG5OdEE5QW9KdU53NkJjWHV3Ri01Y05LR1lMLXRjVVUtdHlJSGZADU0RDX2FSOWlvMnZAMNlNEVm5BZA2tWMFE0WklXTwZDZD' />
+			<InstagramFeed token='IGQVJXYXFwVjhhNVg4bGZAmSy1FUk1ZAYV9LVDRUbFZAXaHV3eUljLWk2X3BDcWo3MmI1MzF0QXlpSE1XMUdZAM3BzTWpIOWVDMFAzRlVaTUtHZAE0td09YQlAxUllTeFNiR0hLclFWT0VHTl9GR0gyQXlPdgZDZD' />
 		</div>
 	);
 };
